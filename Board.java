@@ -4,7 +4,7 @@ public class Board {
     java.util.Random rand = new java.util.Random(0); //乱数は実行毎に同じ結果を得るため, 乱数のseed を0 に設定する
     
     Board() {
-	square = new int[5][5];
+	    square = new int[5][5];
         for (int i=0; i<5; i++) {
             for (int j=0; j<5; j++) {
                 square[i][j] = 0;
