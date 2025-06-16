@@ -1,0 +1,54 @@
+\documentclass{jlreq}
+
+\usepackage{amsmath, amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{listings, xcolor}
+
+\lstset{
+  basicstyle = {\ttfamily}, % 基本的なフォントスタイル 
+  frame = {tbrl}, % 枠線の枠線。t: top, b: bottom, r: right, l: left
+  breaklines = true, % 長い行の改行
+  numbers = left, % 行番号の表示。left, right, none
+  showspaces = false, % スペースの表示
+  showstringspaces = false, % 文字列中のスペースの表示
+  showtabs = false, %　タブの表示
+  keywordstyle = \color{blue}, % キーワードのスタイル。intやwhileなど
+  commentstyle = {\color[HTML]{1AB91A}}, % コメントのスタイル
+  identifierstyle = \color{black}, % 識別子のスタイル　関数名や変数名
+  stringstyle = \color{brown}, % 文字列のスタイル
+  captionpos = t % キャプションの位置 t: 上、b: 下
+}
+
+\title{課題レポート:Study04}
+\author{細川 夏風}
+\date{\today}
+
+\begin{document}
+
+  \maketitle
+
+  \section{変更点}
+    \subsection{Board.java}
+      randのクラス定義をこちらのファイルで宣言した．リファクタリングによりC4.javaのファイルではrandの定義が必要なくなったため，こちらのみに記述することにより，よりきれいなコードになったと考える．
+      また，ほとんどのメソッドでしっかりとした処理を行った．
+      また，カプセル化の思想から，turnをprivate変数にした．
+      \subsubsection*{isleagal()メソッド}
+        このメソッドではC4.javaにあった処理のdo-whileの処理を行った．また，コマのフラグはその時のターンである1,2で処理を行うことにより先手後手の処理を行った．
+        このとき置く場所がなかった場合はfalseが返るようになっている．
+      \subsubsection*{isEnd()メソッド}
+        C4.javaにあった，全探索を行い，置く場所がなければfalseを返し，置く場所が残っているのならばtrueを返す処理を流用した．
+      \subsubsection*{isWinning()メソッド}
+        C4.javaにあった．4つ並んでる状態を探索し，あればtrue,無ければfalseを返す処理を流用した．
+      \subsubsection*{showBoard()メソッド}
+        C4.javaにあったswitch文を用いた処理を流用している．
+    \subsection{C4.java}
+      先手番，後手番によって処理を分ける必要がないので，Board.javaのメソッドを用いて簡易化を行っている．
+  \section{工夫点}
+    主要なプログラムの殆どをBoard.javaに置くことにより，C4.javaの処理を極端に簡素化することができた．前述の通り，カプセル化のためにtrunをprivate変数にし，getTurn()メソッドからturnを取得することができるようにした．
+    また，プログラムそれぞれにコメントをしっかり記述することにより保守$\cdot$管理を簡略化した．
+    
+\begin{thebibliography}{99}
+  
+\end{thebibliography}
+\end{document}

@@ -5,7 +5,6 @@ public class C4 {
 		/* ターンが1であれば先手判定，ターンが2であれば後手判定 */
 		while (true) {
 			int x = -1, y = -1;
-			// 先手番（人間）
 			b.showBoard();
 
 			/* おけるかどうか */
@@ -23,7 +22,7 @@ public class C4 {
 		/* 最終結果発表 */
 		if (b.isEnd()) {
 			System.out.println("引き分けです");
-		} else if (b.turn == 1) {
+		} else if (b.getTurn() == 1) {
 			System.out.println("後手が勝ちました");
 		} else {
 			System.out.println("先手が勝ちました");

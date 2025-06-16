@@ -1,6 +1,6 @@
 public class Board {
     public int[][] square;
-    public int turn;
+    private int turn;
     java.util.Random rand = new java.util.Random(0); //乱数は実行毎に同じ結果を得るため, 乱数のseed を0 に設定する
     
     Board() {
@@ -101,5 +101,10 @@ public class Board {
 
             System.out.println();
 		}
+    }
+
+    /* turnのgetter */
+    public int getTurn() {
+        return turn;
     }
 }
